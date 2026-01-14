@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Todo Application</h2>
+    <input type="text" placeholder="add your todo here"> </input>
+    <button onclick="callback()">Add Todo</button>
+
+    <button onclick="deleteBT()">Delete</button>
+
+    
+</body>
+
+<script>
+    
+
+    function callback(){
+        const inputEL = document.querySelector("input");
+
+        const element = document.createElement("div");
+        element.innerHTML = inputEL.value;
+
+        document.querySelector("body").appendChild(element);
+    }
+
+    function deleteBT(){
+        const Select = document.querySelector("div");
+        Select.parentNode.removeChild(Select);
+    }
+
+
+</script>
+</html>
