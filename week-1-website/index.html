@@ -10,28 +10,31 @@
 
 <body>
   <h1>Todo list</h1>
-  <h4 id="hh">1. Take class</h4>
-  <h4>2. Go out to eat</h4>
-  <h4>3. New Todo</h4>
+  <div id="parentNode">
+    <div id="todo-1" style="display: flex;">
+      <h2>1. First Element</h2>
+      <button onclick="deleteTodo(1)">Delete</button>
+    </div>
+  </div>
   <div>
-    <input type="text" placeholder="Add your Todo here"></input>
-    <button onclick="addTodo()">Add Todo</button>
+    <div id="todo-2" style="display: flex;">
+      <h2>1. Second Element</h2>
+      <button onclick="deleteTodo(2)">Delete</button>
+    </div>
+  </div>
+
+  <div>
+    <input type="text"></input>
+    <button>Add Todo</button>
   </div>
 </body>
+
 <script>
-
- let cnt = 0;
- function callback(){
-  console.log(cnt);
-  cnt += 1;
- }
-
- 
- document.querySelectorAll("h4")[2].innerHTML =setInterval(callback, 1000);
- 
- 
-
-
+  function deleteTodo(index){
+    const value = document.getElementById("todo-" + index);
+    value.parentNode.removeChild(value); //one way to remove child
+    document.getElementById("parentNode").removeChild(value); //another way to remove child
+  }
 
 </script>
 
