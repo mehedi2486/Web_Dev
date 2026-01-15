@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h2>Todo Application</h2>
-    <input type="text" placeholder="add your todo here"> </input>
-    <button onclick="callback()">Add Todo</button>
-
-    <button onclick="deleteBT()">Delete</button>
-
-    
+    <input type="text" id="todoInput" placeholder="add your todo here" />
+    <button id="btn">Add Todo</button>
+    <ul id="todoList"></ul>
 </body>
 
 <script>
-    
+    const todoInput = document.querySelector("#todoInput");
+    const todoList = document.querySelector("#todoList");
+    const btn = document.querySelector("#btn");
 
-    function callback(){
-        const inputEL = document.querySelector("input");
+    btn.addEventListener("click", addTodo);
 
-        const element = document.createElement("div");
-        element.innerHTML = inputEL.value;
+    //add todo function
+    function addTodo() {
+        if (todoInput.value === "") return;
 
-        document.querySelector("body").appendChild(element);
+        const li = document.createElement("li");
+        li.innerText = todoInput.value;
+
+        const deletBtn = document.createElement("button");
+        deletBtn.innerText = "Delete";
+
+        deletBtn.addEventListener("click", function () {
+            li.remove();
+        })
+
+        li.appendChild(deletBtn);
+        todoList.appendChild(li);
+
+
+        todoInput.value = "";
     }
 
-    function deleteBT(){
-        const Select = document.querySelector("div");
-        Select.parentNode.removeChild(Select);
-    }
+    //delete todo function
+
+
+
+
+
 
 
 </script>
+
 </html>
